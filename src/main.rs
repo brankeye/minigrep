@@ -3,7 +3,6 @@ extern crate minigrep;
 use std::env;
 use std::process;
 
-use minigrep::run;
 use minigrep::Config;
 
 fn main() {
@@ -17,7 +16,7 @@ fn main() {
     println!("Searching for {}", config.query);
     println!("In file {}", config.filename);
 
-    if let Err(e) = run(config) {
+    if let Err(e) = minigrep::run(config) {
         println!("Application error: {}", e);
         process::exit(1);
     }
